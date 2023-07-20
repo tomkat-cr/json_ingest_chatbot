@@ -1,3 +1,9 @@
+img_width = "28px"
+img_height = "28px"
+img_basse_path = "https://github.com/tomkat-cr/json_ingest_chatbot/raw/main"
+icon_chatbot = f"{img_basse_path}/assets/icon_chatbot.jpeg"
+icon_human = f"{img_basse_path}/assets/icon_human.jpeg"
+
 css = '''
 <style>
 .chat-message {
@@ -10,17 +16,17 @@ css = '''
     background-color: #475063
 }
 .chat-message .avatar {
-  width: 20%;
+  width: 5%;
 }
 .chat-message .avatar img {
-  max-width: 78px;
-  max-height: 78px;
+  max-width: ''' + img_width + ''';
+  max-height: ''' + img_height + ''';
   border-radius: 50%;
   object-fit: cover;
 }
 .chat-message .message {
-  width: 80%;
-  padding: 0 1.5rem;
+  width: 95%;
+  padding: 0 0.5rem;
   color: #fff;
 }
 '''
@@ -29,8 +35,10 @@ bot_template = '''
 <div class="chat-message bot">
     <div class="avatar">
         <img
-            src="./assets/icon_chatbot.jpeg"
-            style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;"
+            src="''' + icon_chatbot + '''"
+            style="max-height: ''' + img_height + ''';
+            max-width: ''' + img_width + ''';''' + \
+            ''' border-radius: 50%; object-fit: cover;"
         >
     </div>
     <div class="message">{{MSG}}</div>
@@ -41,8 +49,10 @@ user_template = '''
 <div class="chat-message user">
     <div class="avatar">
         <img
-            src="./assets/icon_human.jpeg"
-            style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;"
+            src="''' + icon_human + '''"
+            style="max-height: ''' + img_height + ''';
+            max-width: ''' + img_width + ''';''' + \
+            ''' border-radius: 50%; object-fit: cover;"
         >
     </div>
     <div class="message">{{MSG}}</div>

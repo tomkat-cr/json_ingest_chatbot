@@ -57,10 +57,11 @@ coverage:
 
 format:
 	pipenv run yapf -i *.py **/*.py **/**/*.py
-	pycodestyle
 
 format_check:
 	pipenv run yapf --diff *.py **/*.py **/**/*.py
+
+pycodestyle:
 	pycodestyle
 
 qa: lint types tests format_check pycodestyle
@@ -68,4 +69,4 @@ qa: lint types tests format_check pycodestyle
 # Application Specific Commands
 run:
 	# pipenv run cd src && streamlit run json.py
-	pipenv run streamlit run src/json.py
+	pipenv run streamlit run src/main.py
