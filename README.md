@@ -55,3 +55,4 @@ This project is licensed under the terms of the MIT license.
 ## Acknowledgements
 
 This project uses OpenAI's GPT models and Streamlit. We appreciate their contributions to the open-source community.
+Readme generate by [The AI Readme Generator](https://github.com/tomkat-cr/ai_readme_generator/)

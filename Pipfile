@@ -107,6 +107,7 @@ zipp = "==3.15.0"
 zstandard = "==0.21.0"
 
 [dev-packages]
+flake8 = "*"
 
 [requires]
 python_version = "3.9"

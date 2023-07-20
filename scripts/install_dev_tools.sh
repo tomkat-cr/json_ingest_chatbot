@@ -17,10 +17,10 @@ if [ "${PYTHON_VERSION}" == "" ]; then
 fi
 
 BASH_PROFILE="${HOME}/.bash_profile"
-BASH_SOURCE="bash"
+BASH_SOURCE1="bash"
 if [ -f "${HOME}/.zshrc" ]; then
     BASH_PROFILE="${HOME}/.zshrc"
-    BASH_SOURCE="zsh"
+    BASH_SOURCE1="zsh"
 fi
 
 PYENV_INSTALL_PREFIX=""
@@ -98,10 +98,10 @@ if [ "${ERROR_MSG}" = "" ]; then
             ERROR_MSG="ERROR: pipenv could not be installed."
         else
             # add pipenv to the bash profile
-            ADD_CMD_TO_PROFILE="eval \"$(_PIPENV_COMPLETE=${BASH_SOURCE}_source pipenv)\""
+            ADD_CMD_TO_PROFILE="eval \"$(_PIPENV_COMPLETE=${BASH_SOURCE1}_source pipenv)\""
             if ! grep -q "${ADD_CMD_TO_PROFILE}" ${BASH_PROFILE}; then
                 echo ""
-                echo "Add pipenv to the ${BASH_SOURCE} profile"
+                echo "Add pipenv to the ${BASH_SOURCE1} profile"
                 echo ""
 
                 echo "" >> ${BASH_PROFILE}
