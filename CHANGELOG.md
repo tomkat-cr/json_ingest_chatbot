@@ -17,6 +17,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.1.2 (2023-07-21)
+---
+
+### New
+Add PDF and Youtube loaders (only the loader for now).
+
+### Changes
+Separation of concerns: `main.py` replaces `json.py` as the main script, `vector_index.py` has all vector related operations, and each loader is separated into its own code file: `json_reader.py`, `git_reader.py`, `pdf_reader.py`, and `youtube_reader.py`.
+
+
 ## 0.1.1 (2023-07-20)
 ---
 

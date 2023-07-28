@@ -1,7 +1,8 @@
 import json
 from langchain.document_loaders.json_loader import JSONLoader
 
-from commons import DEBUG, VectorEntry
+from commons import DEBUG
+from vector_index import VectorEntry
 
 
 def get_json_files(json_files):

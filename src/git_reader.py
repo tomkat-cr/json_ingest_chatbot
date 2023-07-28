@@ -4,7 +4,8 @@ from pprint import pprint
 from git import Repo
 from langchain.document_loaders import GitLoader
 
-from commons import DEBUG, VectorEntry, std_response
+from commons import DEBUG, std_response
+from vector_index import VectorEntry
 
 
 def remove_dir(local_temp_path):

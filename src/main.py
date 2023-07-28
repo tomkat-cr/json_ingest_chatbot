@@ -3,13 +3,9 @@ from dotenv import load_dotenv
 import streamlit as st
 from htmlcss import bot_template, user_template, css
 
-from langchain.chat_models import ChatOpenAI
-from langchain.memory import ConversationBufferMemory
-from langchain.chains import ConversationalRetrievalChain
-from langchain.indexes import VectorstoreIndexCreator
-
 from json_reader import get_json_files
 from git_reader import get_repo_data
+from vector_index import get_vector_index, get_conversation_chain
 
 
 def handle_userinput(user_question):
@@ -26,24 +22,6 @@ def handle_userinput(user_question):
         else:
             st.write(bot_template.replace(
                 "{{MSG}}", message.content), unsafe_allow_html=True)
-
-
-def get_conversation_chain(
-    vectorstore, gpt_model, gpt_temperature
-):
-    llm = ChatOpenAI(
-        model=gpt_model,
-        temperature=gpt_temperature
-    )
-    memory = ConversationBufferMemory(
-        memory_key='chat_history', return_messages=True
-    )
-    conversation_chain = ConversationalRetrievalChain.from_llm(
-        llm=llm,
-        retriever=vectorstore.as_retriever(),
-        memory=memory
-    )
-    return conversation_chain
 
 
 def main():
@@ -105,7 +83,10 @@ def main():
                     branch = "main"
                 repo_data = get_repo_data(repo_url, branch)
                 all_json_files = get_json_files(json_docs)
-                index = VectorstoreIndexCreator().from_documents(
+                # index = VectorstoreIndexCreator().from_documents(
+                #     all_json_files + repo_data
+                # )
+                index = get_vector_index(
                     all_json_files + repo_data
                 )
                 st.session_state.conversation = get_conversation_chain(
